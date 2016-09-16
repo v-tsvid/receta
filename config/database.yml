@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  host: localhost
+  port: 5432
+  encoding: unicode
+
+development:
+  <<: *default
+  database: receta_development
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+
+test:
+  <<: *default
+  database: receta_test
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+
+production:
+  <<: *default
+  database: receta_production
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
